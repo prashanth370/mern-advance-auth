@@ -1,9 +1,9 @@
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Input from "@/components/Input";
 import { Loader, Lock, Mail } from 'lucide-react';
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthStore } from "@store/authStore";
+import { useAuthStore } from "@/store/authStore";
 import { toast } from "react-hot-toast";
 
 const LoginPage = () => {
@@ -17,6 +17,7 @@ const LoginPage = () => {
     try {
       await login(email, password);
       toast.success("Login successful!");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
