@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Input from "@/components/Input";
-import { Loader, Lock, Mail } from 'lucide-react';
+import { Loader, Lock, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/store/authStore";
 import { toast } from "react-hot-toast";
@@ -18,8 +18,9 @@ const LoginPage = () => {
       await login(email, password);
       toast.success("Login successful!");
       navigate("/");
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to login. Please check your credentials.");
     }
   };
 
@@ -28,22 +29,22 @@ const LoginPage = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden"
+      className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden mx-auto mt-20"
     >
       <div className="p-8">
         <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
           Welcome Back
         </h2>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} className="space-y-4">
           <Input
-            icon={Mail}
+            icon={<Mail />}
             type="email"
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
-            icon={Lock}
+            icon={<Lock />}
             type="password"
             placeholder="Password"
             value={password}
@@ -68,7 +69,7 @@ const LoginPage = () => {
       </div>
       <div className="px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center">
         <p className="text-sm text-gray-400">
-          Don't have an account?{" "}
+          Don’t have an account?{" "}
           <Link to="/signup" className="text-green-400 hover:underline">
             Sign Up
           </Link>
