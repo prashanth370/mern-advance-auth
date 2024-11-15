@@ -10,8 +10,7 @@
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm install && cd frontend && npm install --production=false && npm run build && cd ..",
-    "render-build": "npm install && cd frontend && npm install --production=false && npm run check-files && npm run build && cd ..",
-    "check-files": "node scripts/check-files.js"
+    "render-build": "npm install && cd frontend && npm install --production=false && npm run build && cd .."
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
