@@ -2,11 +2,13 @@ services:
   - type: web
     name: mern-advance-auth
     env: node
-    buildCommand: npm run render-postbuild
+    buildCommand: npm run install-all && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 18.x
+      - key: NODE_ENV
+        value: production
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
@@ -15,5 +17,3 @@ services:
         sync: false
       - key: CLIENT_URL
         value: https://mern-advance-auth.onrender.com
-      - key: NODE_ENV
-        value: production
