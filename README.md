@@ -34,7 +34,7 @@ This project is a full-stack MERN (MongoDB, Express, React, Node.js) application
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/mern-advance-auth.git
+   git clone https://github.com/prashanth370/mern-advance-auth.git
    cd mern-advance-auth
    ```
 
